@@ -27,7 +27,7 @@ public class AboutSerialization {
 		// deserialize
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 		String otherString = (String)is.readObject();
-		assertEquals(otherString, __);
+		assertEquals(otherString, "Hello world");
 	}
 	
 	static class Starship implements Serializable {
@@ -50,7 +50,7 @@ public class AboutSerialization {
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 		Starship onTheOtherSide = (Starship)is.readObject();
 
-		assertEquals(onTheOtherSide.maxWarpSpeed, __);
+		assertEquals(onTheOtherSide.maxWarpSpeed, 9);
 	}
 	
 	static class Engine {
@@ -88,7 +88,7 @@ public class AboutSerialization {
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 		Car deserializedCar = (Car)is.readObject();
 
-		assertEquals(deserializedCar.engine.type, __);
+		assertEquals(deserializedCar.engine.type, "diesel");
 	}
 	
 	@SuppressWarnings("serial")
@@ -108,7 +108,7 @@ public class AboutSerialization {
 			marker += "Exception";
 		}
 		os.close();
-		assertEquals(marker, __);
+		assertEquals(marker, "Start Exception");
 	}
 	
 	@SuppressWarnings("serial")
@@ -135,7 +135,7 @@ public class AboutSerialization {
 		
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 		Dog otherDog = (Dog)is.readObject();
-		assertEquals(otherDog.name, __);
+		assertEquals(otherDog.name, "snoopy");
 	}
 	
 	static class Plane {
@@ -163,7 +163,7 @@ public class AboutSerialization {
 		ObjectInputStream is = new ObjectInputStream(new FileInputStream("SerializeFile"));
 		MilitaryPlane otherPlane = (MilitaryPlane)is.readObject();
 		// Does this surprise you?
-		assertEquals(otherPlane.name, __);
+		assertEquals(otherPlane.name, null);
 		
 		// Think about how serialization creates objects... 
 		// It does not use constructors! But if a parent object is not serializable
